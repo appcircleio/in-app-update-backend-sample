@@ -12,6 +12,10 @@ app.use((req, res, next) => {
   next();
 });
 
+// We are using a mock authentication mechanism here with a hardcoded username and password.
+// This is only for demonstration purposes and to prevent unauthorized users from acquiring a token.
+// In a real-world scenario, proper authentication should be implemented based on actual user or device credentials.
+// If the API is not exposed to external users (e.g., behind a VPN), you could potentially skip authentication.
 const authEnpdpoint = "https://auth.appcircle.io/auth/v1/in-app-update/token";
 app.post("/login", async (req, res) => {
   const { email, password, profileId } = req.body;
